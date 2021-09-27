@@ -1,57 +1,73 @@
 import React, { useEffect, useState } from 'react';
-import Allusers from '../Allusers/Allusers';
 import Cart from '../Cart/Cart';
+import Total from '../Total/Total';
 import './Home.css';
 
 const Home = () => {
     const [users, setUsers] = useState([]);
-    
 
-    useEffect(() =>{
+
+    useEffect(() => {
         fetch("./users.json")
-        .then(res => res.json())
-        .then(data => setUsers(data));
+            .then(res => res.json())
+            .then(data => setUsers(data));
     }, [])
     const [addedMember, setAddedMember] = useState([]);
+    // const [addedPrice, setAddedPrice] = useState([]);
+   
 
-    const handleAddToCart =(newMember) => {
-        const newAddedmember = [...addedMember, newMember];
+    const handleAddToCart = (cart) => {
+       
+        
+        // const newAddedPrice = [...addedPrice, newMember];
+        // setAddedPrice(newAddedPrice);
+       
+        const newAddedmember = [...addedMember, cart];
         setAddedMember(newAddedmember);
+         
+        
     }
+    
+
+    
     return (
         <div>
-            <div className="row">
-                <h1 className="text-danger">Total Company Member:{addedMember.length}</h1>
-                <div className="col-md-9 left-side">
-                    <div className="row">
-                    <div>
-                {
-                    users.map((cart) => (
-                   <Cart
-                     handleAddToCart={handleAddToCart}
-                        key={cart._id.value}
-                        cart={cart}
-                    ></Cart>))
-    
-                }
-                </div>
-                <div className="alluser-container">
-                    <Allusers addedMember={addedMember}></Allusers>
-    
-                    
-                    
-                </div>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div>
-                        <h1>Member Added:{addedMember.length}</h1>
-                        <h1>Total Balance:</h1>
-                    </div>
+            <div>
+                 <h1 className= "bg-secondary text-white">Total Company Member:{addedMember.length}</h1>
+             </div>
+               <div className="container">
+                   <div className="row">
+                       <div className="col-md-9">
+                            <div className=" row ">
+                             {
+                               users.map((cart) => (
+                                <Cart
+                                    handleAddToCart={handleAddToCart}
+                                    key={cart._id.value}
+                                    cart={cart}
+                                 ></Cart>))
+                              }
+                             </div>
+                         </div>
+                        <div className="col-md-3">
+                              <div className="bg-info">
+                                  <Total addedMember={addedMember}></Total>
+                                 </div>
+                            </div>
 
-                </div>
 
-            </div>
+                     
+            
+                    
+                   </div>
+
+               </div>
+                
+                         
+                       
+                   
+           
+           
         </div>
     );
 };

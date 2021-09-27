@@ -1,9 +1,13 @@
-.btn-regular{
+
+   
+
+  .user-img img{
+      width: 200px;
+      height: 200px;
+
+  }
+  .btn-member{
     background-color: goldenrod;
-    width: 150px;
-    height: 25px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
+    margin-right: 5px;
+
+  }
