@@ -49,8 +49,8 @@ const Home = () => {
                               }
                              </div>
                          </div>
-                        <div className="col-md-3">
-                              <div className="bg-info">
+                        <div className="col-md-3 right-side">
+                              <div className="bg-light">
                                   <Total addedMember={addedMember}></Total>
                                  </div>
                             </div>

@@ -28,7 +28,6 @@ const Cart = (props) => {
                              ><FontAwesomeIcon icon={faShoppingCart} />
                                Add To Card</button>
                          <button
-                             onClick={() =>props.handleAddToPrice(props.cart)}
                               className="btn-member mb-3"
                              ><FontAwesomeIcon icon={faDollarSign} />
                                balance</button>
